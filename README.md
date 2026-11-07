@@ -81,4 +81,4 @@ Termify yeni sürümleri kendisi denetler. Yeni sürüm çıktığında ekranın
 - Port yönlendirme: yerel, uzak ve SOCKS5
 - Snippet'ler, bilinen hostlar, şifreli yedekleme
 
-Bu depo yalnızca kurulum dosyalarını barındırır.
+Bu depo kurulum dosyalarını barındırır. Termify açık kaynaklıdır (MIT lisansı); kaynak kod, hata bildirimleri ve katkılar için: **[github.com/Muhammed61/termify](https://github.com/Muhammed61/termify)**

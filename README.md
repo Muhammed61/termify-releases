@@ -63,6 +63,24 @@ Kurulum yapmadan kullanmak isterseniz **.AppImage** dosyasını indirip `chmod +
 
 İlk açılışta bir ana parola veya 4 haneli PIN belirleyin. Hostlarınız, parolalarınız ve anahtarlarınız bununla şifrelenir. Size verilen **kurtarma anahtarını** saklayın; parolanızı unutursanız onunla yeni parola belirlersiniz.
 
+## İndirilen dosyayı doğrulama
+
+v1.0.5 ve sonraki sürümlerde her kurulum dosyası için iki doğrulama yolu vardır:
+
+**1. SHA256 özeti:** dosyanın indirirken bozulmadığını veya değiştirilmediğini gösterir. Sürüm sayfasındaki `SHA256SUMS.txt` içindeki değerle karşılaştırın:
+
+- Windows (PowerShell): `Get-FileHash .\Termify-Setup-x.y.z.exe -Algorithm SHA256`
+- macOS: `shasum -a 256 Termify-x.y.z-arm64.dmg`
+- Linux: `sha256sum -c SHA256SUMS.txt --ignore-missing`
+
+**2. Derleme kanıtı:** dosyanın [Muhammed61/termify](https://github.com/Muhammed61/termify) deposundaki açık kaynak koddan, GitHub Actions'ta derlendiğini kanıtlar. Kanıt Sigstore ile imzalıdır ve GitHub'da herkese açık saklanır. [GitHub CLI](https://cli.github.com) kuruluysa:
+
+```
+gh attestation verify Termify-Setup-x.y.z.exe --repo Muhammed61/termify
+```
+
+Komut `Verification succeeded` derse dosya o depodaki koddan derlenmiştir ve sonradan değiştirilmemiştir. Kurulum dosyaları henüz bir kod imzalama sertifikasıyla imzalı olmadığı için Windows ve macOS ilk açılışta uyarı gösterebilir; bu doğrulama o uyarının yerine geçmez ama dosyanın gerçekten bu projeden geldiğini gösterir.
+
 ## Güncellemeler
 
 Termify yeni sürümleri kendisi denetler. Yeni sürüm çıktığında ekranın üstünde bildirim görünür. Verileriniz her iki durumda da korunur.
